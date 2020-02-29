@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>物业缴费</title>
+    <link rel="stylesheet" href="/weui.min.css">
+    <link rel="stylesheet" href="/propertyPay.css">
+    <script type="text/javascript" src="/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.4/weui.min.js"></script>
+    <style>
+        .select-item .pointer {
+            cursor: pointer;
+        }
+
+        .select-detail .money.long-price {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="page pay">
+    <div class="page__bd">
+        <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label"><img src="/pay.png"/>物业缴费</label>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">缴费单位</label>
+                    <span class="weui-form-preview__value" id="configName"></span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">手机号</label>
+                    <span class="weui-form-preview__value" id="phone"></span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">姓名</label>
+                    <span class="weui-form-preview__value" id="residentName"></span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">地址信息</label>
+                    <span class="weui-form-preview__value" id="houseAddress"></span>
+                </div>
+            </div>
+        </div>
+        <div class="pay-select">
+            <div class="page house-infor-wrapper">
+                <div class="house-infor">
+                    <div class="house-infor-item">
+                        <div class="house-infor-item-title">
+                            <!--<span class="red">*</span>-->
+                            缴费年份
+                        </div>
+                        <div class="house-infor-item-select">
+                            <select id="yearSelect">
+                                <option>世纪城龙湖苑</option>
+                                <option>世纪城龙湖苑</option>
+                                <option>世纪城龙湖苑</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells__title">请选择缴费月份</div>
+            <div class="select-list">
+                <div class="select-item disable">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                    </div>
+                </div>
+                <div class="select-item active">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+                <div class="select-item">
+                    <div class="select-detail">
+                        <div class="money">元</div>
+                        <div class="time">年月</div>
+                        <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-btn-area" style="font-size: 13px;">
+            请各位居民谨慎核对缴费月份，避免产生错缴、误缴
+        </div>
+        <div class="weui-btn-area" id="pay-btn">
+            <a class="weui-btn weui-btn_primary" href="javascript:">立即支付</a>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/howjoy/property/WCPayCommon.js"></script>
+<script type="application/javascript">
+    function HjMain() {
+    }
+
+    HjMain.prototype.init = function () {
+        var self = this;
+        var liveId = Hj.getUrlParam("liveId");
+        if (!liveId) {
+            alert("页面参数错误，请联系管理员！");
+            return;
+        }
+        self.livedId = liveId;
+        self.initYear();
+        self.initEvent();
+        self.initMonthPayInfo();
+    };
+    HjMain.prototype.isYearLastTwoDay = function () {
+        var currentDate = new Date();
+        return currentDate.getMonth() + 1 == 12 && currentDate.getDate() >= 30;
+    };
+
+    HjMain.prototype.initMonthPayInfo = function () {
+        var self = this;
+        
+            var data =  {"code":200,"message":"成功","data":{"configName":"白庙社区","phone":"15901316012","residentName":"韩国信","price":3000,"houseCode":"11011400230345011103","residentId":"135042598","list":[{"price":3000,"month":"2020年01月","paid":true},{"price":3000,"month":"2020年02月","paid":true},{"price":3000,"month":"2020年03月","paid":false},{"price":3000,"month":"2020年04月","paid":false},{"price":3000,"month":"2020年05月","paid":false},{"price":3000,"month":"2020年06月","paid":false},{"price":3000,"month":"2020年07月","paid":false},{"price":3000,"month":"2020年08月","paid":false},{"price":3000,"month":"2020年09月","paid":false},{"price":3000,"month":"2020年10月","paid":false},{"price":3000,"month":"2020年11月","paid":false},{"price":3000,"month":"2020年12月","paid":false}],"houseAddress":"白庙村335号1单元1楼103"}}
+            $("#configName").text(data.configName);
+            $("#phone").text(data.phone);
+            $("#residentName").text(data.residentName);
+            $("#houseAddress").text(data.houseAddress);
+
+            var html = data.list.map(function (monthPay) {
+                monthPay.class = monthPay.paid ? 'disable' : '';
+                monthPay.priceText = monthPay.paid ? '已缴费' : '<span style="font-size: 14px">￥</span>' + (monthPay.price / 100);
+                var priceLength = (monthPay.price / 100).toString().length;
+//                monthPay.moneyClass = priceLength > 5 && !monthPay.paid ? 'long-price' : '';
+                return Hj.getHtmlTemplate("template1").format(monthPay);
+            }).join('');
+            $('.pay-select .select-list').html(html);
+
+            Hj.payParam = {
+                residentId: data.residentId,
+                houseCode: data.houseCode,
+                price: data.price / 100
+            }
+         
+    };
+    HjMain.prototype.initYear = function () {
+        var self = this;
+        var yearList = Hj.getYearList();
+        var yearOptionHtml = yearList.map(function (year) {
+            return "<option value='" + year.value + "'>" + year.value + "年</option>";
+        }).join('');
+        $('#yearSelect').html(yearOptionHtml);
+        var checkFlag = self.isYearLastTwoDay();
+        if (checkFlag) {
+            $('#yearSelect').val(new Date().getFullYear() + 1);
+        }
+    };
+    HjMain.prototype.initEvent = function () {
+        var self = this;
+
+        //立即支付
+        $('body').on('click', '#pay-btn', function () {
+            var monthList = $(".pay-select .select-list .select-item.active").toArray().map(function (e) {
+                return $(".pay-select .select-list .select-item").index(e) + 1;
+            });
+            if (monthList.length === 0) {
+                alert("请选择要缴费的月份！");
+                return;
+            }
+            var param = JSON.stringify({
+                residentId: Hj.payParam.residentId,
+                houseCode: Hj.payParam.houseCode,
+                price: Hj.payParam.price,
+                year: $('#yearSelect').val(),
+                monthList: monthList
+            });
+            window.location.href = Hj.buildUrlWithParam({
+                url: '/static/html5/propertyPay/pay.html',
+                paramList: [
+                    {name: 'residentId', value: Hj.payParam.residentId},
+                    {name: 'houseCode', value: Hj.payParam.houseCode},
+                    {name: 'price', value: Hj.payParam.price},
+                    {name: 'year', value: $('#yearSelect').val()},
+                    {name: 'monthList', value: monthList}
+                ]
+            });
+        });
+        $('body').on('click', '.pay-select .select-list .select-item', function () {
+            if ($(this).hasClass('disable')) {
+                return;
+            } else if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+        });
+        $('body').on('change', '#yearSelect', function () {
+            self.initMonthPayInfo();
+        });
+    };
+
+    jQuery(function () {
+        new HjMain().init();
+    });
+</script>
+<script type="text/html" id="template1">
+    <div class="select-item {class} pointer" style='cursor:pointer'>
+        <div class="select-detail">
+            <div class="time">{month}</div>
+            <div class="money">{priceText}</div>
+            <img class="active-icon" src="/static/images/html5/img/propertyPay/pay-confirm.png"/>
+        </div>
+    </div>
+</script>
+</html>

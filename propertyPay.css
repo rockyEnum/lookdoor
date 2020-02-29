@@ -1,0 +1,440 @@
+html {
+    background: #F7F7F7;
+}
+
+body {
+    line-height: normal;
+}
+
+.weui-btn {
+    line-height: 2.225;
+    border-radius: 2px;
+}
+
+.weui-btn_primary {
+    background-color: #1AB555;
+}
+
+.weui-btn:after {
+    border: 0;
+}
+
+.weui-cells {
+    font-size: 14px;
+}
+
+/*手机号验证*/
+.phone-validate .page__hd {
+    color: #ffffff;
+    background: #1AB555;
+    text-align: center;
+    padding: 28px 0;
+}
+
+.phone-validate .page__hd .page__title img {
+    width: 9.07%;
+}
+
+.phone-validate .page__desc {
+    font-size: 18px;
+}
+
+.phone-validate .page__bd {
+    padding: 40px 20px 0;
+}
+
+.phone-validate .weui-cell__hd {
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.phone-validate .weui-cell {
+    padding: 9px 10px;
+}
+
+.phone-validate .weui-cell:last-child {
+    margin-top: 20px;
+    padding-right: 90px;
+}
+
+.get-validatenum {
+    font-size: 14px;
+    color: #ffffff;
+    background: #1AB555;
+    width: 90px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.get-validatenum:active {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: #179B16;
+}
+
+.input-container {
+    position: relative;
+    background: #ffffff;
+}
+
+.border {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    border: 1px solid #E4E7ED;
+}
+
+.phone-validate .weui-input:focus + .border {
+    border-color: #1AB555;
+}
+
+.phone-validate .weui-cell:before {
+    border-top: 0;
+}
+
+.phone-validate .weui-btn-area {
+    padding: 80px 20px 0;
+    margin: 0;
+}
+
+.phone-validate .weui-input {
+    font-size: 14px;
+}
+
+.phone-validate .weui-cells__title {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+/*小区选择*/
+.location-wrapper {
+    padding-bottom: 20px;
+}
+
+.location-ways {
+    overflow: hidden;
+}
+
+.location {
+    font-size: 14px;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #e5e5e5;
+    background: #F0EFF5;
+    padding: 0 20px;
+    margin-left: 15px;
+}
+
+.location img {
+    height: 14px;
+    vertical-align: middle;
+}
+
+.re-location {
+    background: #FFFFFF;
+}
+
+.re-location img {
+    margin-right: 5px;
+}
+
+#searchBlock, #noBlock {
+    display: none;
+}
+
+#searchBlock .weui-cells {
+    margin-top: 0;
+}
+
+.no-block {
+    color: #888888;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.no-block img {
+    margin-bottom: 30px;
+}
+
+/*填写房屋信息*/
+
+.house-infor-wrapper {
+    padding: 10px;
+}
+
+.house-infor {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 0 5px;
+}
+
+.house-infor-item {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 14px 12px;
+}
+
+.house-infor-item:last-child {
+    border-bottom: 0;
+}
+
+.house-infor-item-title {
+    color: #999;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.red {
+    color: #F56C6B;
+}
+
+.house-infor-item-select select {
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.house-infor-item-input .weui-input {
+    font-size: 14px;
+}
+
+.house-infor-item-input input.weui-input::-webkit-input-placeholder {
+    color: black;
+}
+
+.house-infor-item-select {
+    position: relative;
+}
+
+.house-infor-wrapper .weui-btn-area {
+    margin: 24px 10px;
+}
+
+.house-infor-item-select:before {
+    content: " ";
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-width: 0 1px 1px 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -4px;
+}
+
+.weui-btn.disable {
+    background: #C0C4CC;
+}
+
+/*支付*/
+.weui-form-preview__label {
+    font-size: 14px;
+    text-align: left;
+    text-align-last: auto;
+}
+
+.weui-form-preview__label img {
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.pay-select {
+    background: #ffffff;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.select-list {
+    overflow: hidden;
+    padding: 0 10px 10px;
+}
+
+.select-list * {
+    box-sizing: border-box;
+}
+
+.select-item {
+    width: 33.33%;
+    padding: 5px;
+    float: left;
+}
+
+.select-detail {
+    /*color: #1AB555;*/
+    color: #888888;
+    /*border: 1px solid #1AB555;*/
+    border: 1px solid #C0C4CC;
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px 0 0 0;
+    height: 65px;
+    position: relative;
+}
+
+.active .select-detail {
+    color: #1AB555;
+    border: 1px solid #1AB555;
+}
+
+.select-detail .money {
+    font-size: 14px;
+}
+
+.select-detail .time {
+    font-size: 18px;
+}
+
+.active-icon {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.disable .select-detail {
+    color: #888888;
+    background: #F2F6FC;
+    border-color: #EBEEF4;
+}
+
+.active .active-icon {
+    display: block;
+}
+
+.pay .weui-btn-area, .counter .weui-btn-area {
+    margin: 20px 20px 20px;
+}
+
+#yearSelect {
+    font-size: 15px;
+    color: #1ab555;
+}
+
+/*H5收银台*/
+.weui-cell-title {
+    color: #999;
+    padding-right: 5px;
+}
+
+.green {
+    color: #1AB555;
+}
+
+.counter .weui-cells {
+    margin-top: 0;
+}
+
+.counter .weui-cells:before {
+    border-top: 0;
+}
+
+.counter .weui-cells {
+    line-height: 40px;
+}
+
+.weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+    content: "\EA06";
+    font-size: 20px;
+    color: #1AB555;
+}
+
+.counter .weui-cells_radio {
+    font-size: 16px;
+}
+
+.counter .weui-cells_radio img {
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.counter .weui-cells__title {
+    margin: 0;
+    line-height: 50px;
+}
+
+@media screen and (max-width: 374px) {
+    .select-detail {
+        padding: 11px 0 0 0;
+    }
+    .select-detail .time {
+        font-size: 16px;
+    }
+    .select-detail .money {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .select-detail {
+        padding: 14px 0 0 0;
+    }
+    .select-detail .time {
+        font-size: 14px;
+    }
+    .select-detail .money {
+        font-size: 12px;
+    }
+}
+/*缴费记录*/
+.pay-detail .weui-label {
+    width: auto;
+    padding-right: 5px;
+}
+
+.pay-detail {
+    background-color: #ffffff;
+    border-top: 1px solid #EBEEF4;
+    border-bottom: 1px solid #EBEEF4;
+    padding: 15px 0;
+    margin: 5px 0;
+}
+
+.pay-detail .weui-cell {
+    color: #999;
+    font-size: 14px;
+    padding: 5px 15px;
+    -webkit-box-align: normal;
+    -webkit-align-items: normal;
+    align-items: normal;
+}
+
+.pay-detail .weui-cell.pay-time {
+    color: inherit;
+    font-size: 16px;
+}
+
+.pay-detail .weui-cell:before {
+    border: 0;
+}
+
+.record .weui-cells__title {
+    margin-top: 1em;
+    margin-bottom: .6em;
+}
+
+.invalidBtn {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.invalidBtn a {
+    cursor: not-allowed;
+}
