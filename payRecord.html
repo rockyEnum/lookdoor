@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>缴费记录</title>
+    <link rel="stylesheet" href="/static/css/weChat/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/static/css/html5Css/propertyPay.css">
+</head>
+<body>
+<div class="page record">
+    <div class="record-list" id="history-list">
+        <!--<div class="record-item">-->
+        <!--<div class="weui-cells__title">2018年10月</div>-->
+        <!--<div class="pay-detail">-->
+        <!--<div class="weui-cell pay-time">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">缴费时间：</label></div>-->
+        <!--<div class="weui-cell__bd">2018.10.11</div>-->
+        <!--</div>-->
+        <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">缴费单位：</label></div>-->
+        <!--<div class="weui-cell__bd">xxx物业</div>-->
+        <!--</div>-->
+        <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">订单号：</label></div>-->
+        <!--<div class="weui-cell__bd">345636587558900306584360</div>-->
+        <!--</div>-->
+        <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">手机号：</label></div>-->
+        <!--<div class="weui-cell__bd">18765476120</div>-->
+        <!--</div>-->
+        <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">付款金额：</label></div>-->
+        <!--<div class="weui-cell__bd">165元</div>-->
+        <!--</div>-->
+        <!--<div class="weui-cell">-->
+        <!--<div class="weui-cell__hd"><label class="weui-label">地址信息：</label></div>-->
+        <!--<div class="weui-cell__bd">深圳市宝安区世纪城龙翔苑1栋2单元1002</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<script type="text/javascript" src="/lookdoor/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/lookdoor/WCPayCommon.js"></script>
+<script language="javascript">
+    //防止页面后退
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+</script>
+<script type="application/javascript">
+    function HjMain() {
+        this.page = 1;
+    }
+
+    HjMain.prototype.init = function () {
+        var key = Hj.getUrlParam("key");
+        if (!key) {
+            $("#history-list").append($("#template4").html());
+            return;
+        }
+        var self = this;
+        self.appendHistoryList(self.page);
+
+        $('body').on('click', '#loadMore', function () {
+            self.appendHistoryList(self.page + 1);
+        })
+    };
+
+    HjMain.prototype.appendHistoryList = function (page) {
+        var self = this;
+        self.page = page;
+        $("#loadMore").remove();
+
+        Hj.defPost('https://boss.lookdoor.cn'+Hj.BASE_URL.PROPERTY + "/getHistory.json", {
+            pageSize: 5,
+            page: page
+        }, function (ack) {
+            var list = ack.data;
+            if (list.length === 0) {
+                $("#history-list").append($("#template4").html());
+                $("#loadMore").remove();
+                return;
+            }
+            if(page === 1){
+                list.splice(1,0,{
+                    { 
+                        id: "253181848908222464",
+                        name: "韩国信",
+                        phone: "15901316012",
+                        houseAddress: "白庙村335号1单元103",
+                        month: 2,
+                        price: 3000,
+                        payType: 1,
+                        operator: "ozrKYwt9mwsC0nAOY88WK_DnX4e8",
+                        orderNumber: "253181821599088641",
+                        bizTime: "2020-02-20 08:51:51.426",
+                        residentId: "135042598",
+                        houseCode: "11011400230345011103",
+                        configId: "84687826288902144",
+                        blockCode: "1101140023",
+                        buildingCode: "11011400230345",
+                        unitCode: "1101140023034501",
+                        year: 2020,
+                        createTime: "2020-02-20 08:51:51.433",
+                        updateTime: "2020-02-20 08:51:51.433",
+                        configName: "白庙社区"
+                })
+            }
+            var timestampTemp = 0;
+            list.forEach(function (history) {
+                var dateStr = history.year + "-" + history.month + "-01";
+                dateStr = dateStr.replace(/-/g, "/");
+                var timestamp = new Date(dateStr).getTime();
+                if (timestamp !== timestampTemp) {
+                    var $itemContainer = $($("#template").html());
+                    var date = new Date(parseInt(timestamp));
+                    $itemContainer.text(date.getFullYear() + "年" + (date.getMonth() + 1) + "月");
+                    $('#history-list').append($itemContainer.prop("outerHTML"));
+                    timestampTemp = timestamp;
+                }
+                history.price = history.price / 100;
+                $('#history-list .record-item:last').append($("#template3").html().format(history));
+            });
+            $("#history-list").append(Hj.getHtmlTemplate("template5"));
+        }, Hj.getDefaultHeader());
+    };
+
+    jQuery(function () {
+        new HjMain().init();
+    });
+</script>
+</body>
+<script type="text/html" id="template">
+    <div class="record-item"></div>
+</script>
+<script type="text/html" id="template2">
+    <div class="weui-cells__title">2018年10月</div>
+</script>
+<script type="text/html" id="template3">
+    <div class="pay-detail">
+        <div class="weui-cell pay-time">
+            <div class="weui-cell__hd"><label class="weui-label">缴费时间：</label></div>
+            <div class="weui-cell__bd">{bizTime}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">缴费单位：</label></div>
+            <div class="weui-cell__bd">{configName}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">订单号：</label></div>
+            <div class="weui-cell__bd">{orderNumber}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">手机号：</label></div>
+            <div class="weui-cell__bd">{phone}</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">付款金额：</label></div>
+            <div class="weui-cell__bd">{price}元</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">地址信息：</label></div>
+            <div class="weui-cell__bd">{houseAddress}</div>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="template4">
+    <div class="record-item">
+        <div class="weui-cells__title" style="text-align: center">更多记录请咨询相关物业</div>
+    </div>
+</script>
+<script type="text/html" id="template5">
+    <div class="record-item" id="loadMore" style='cursor:pointer'>
+        <div class="weui-cells__title" style="text-align: center;cursor: pointer;font-size: 20px;">加载更多</div>
+    </div>
+</script>
+</html>
