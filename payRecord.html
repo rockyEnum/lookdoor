@@ -76,17 +76,13 @@
         self.page = page;
         $("#loadMore").remove();
 
-        Hj.defPost('https://boss.lookdoor.cn'+Hj.BASE_URL.PROPERTY + "/getHistory.json", {
-            pageSize: 5,
-            page: page
-        }, function (ack) {
-            var list = ack.data;
+            var data = {"code":200,"message":"成功","data":[{"id":"253181848908222464","name":"韩国信","phone":"15901316012","houseAddress":"白庙村335号1单元103","month":3,"price":3000,"payType":1,"operator":"ozrKYwt9mwsC0nAOY88WK_DnX4e8","orderNumber":"253181821599088641","bizTime":"2020-03-01 08:51:51.426","residentId":"135042598","houseCode":"11011400230345011103","configId":"84687826288902144","blockCode":"1101140023","buildingCode":"11011400230345","unitCode":"1101140023034501","year":2020,"createTime":"2020-03-01 08:51:51.433","updateTime":"2020-03-01 08:51:51.433","configName":"白庙社区"},{"id":"231416919331176448","name":"韩国信","phone":"15901316012","houseAddress":"白庙村335号1单元103","month":1,"price":3000,"payType":1,"operator":"ozrKYwt9mwsC0nAOY88WK_DnX4e8","orderNumber":"231416893934665729","bizTime":"2020-01-01 07:25:47.842","residentId":"135042598","houseCode":"11011400230345011103","configId":"84687826288902144","blockCode":"1101140023","buildingCode":"11011400230345","unitCode":"1101140023034501","year":2020,"createTime":"2020-01-01 07:25:47.848","updateTime":"2020-01-01 07:25:47.848","configName":"白庙社区"},{"id":"220200327402487808","name":"韩国信","phone":"15901316012","houseAddress":"白庙村335号1单元103","month":12,"price":3000,"payType":1,"operator":"ozrKYwt9mwsC0nAOY88WK_DnX4e8","orderNumber":"220200299455840257","bizTime":"2019-12-01 08:35:03.932","residentId":"135042598","houseCode":"11011400230345011103","configId":"84687826288902144","blockCode":"1101140023","buildingCode":"11011400230345","unitCode":"1101140023034501","year":2019,"createTime":"2019-12-01 08:35:03.939","updateTime":"2019-12-01 08:35:03.939","configName":"白庙社区"},{"id":"209157013958033408","name":"韩国信","phone":"15901316012","houseAddress":"白庙村335号1单元103","month":11,"price":3000,"payType":1,"operator":"ozrKYwt9mwsC0nAOY88WK_DnX4e8","orderNumber":"209156986883801089","bizTime":"2019-10-31 21:12:52.832","residentId":"135042598","houseCode":"11011400230345011103","configId":"84687826288902144","blockCode":"1101140023","buildingCode":"11011400230345","unitCode":"1101140023034501","year":2019,"createTime":"2019-10-31 21:12:52.833","updateTime":"2019-10-31 21:12:52.833","configName":"白庙社区"},{"id":"200215844939104256","name":"韩国信","phone":"15901316012","houseAddress":"白庙村335号1单元103","month":10,"price":3000,"payType":1,"operator":"ozrKYwt9mwsC0nAOY88WK_DnX4e8","orderNumber":"200215819756503041","bizTime":"2019-10-07 05:03:52.019","residentId":"135042598","houseCode":"11011400230345011103","configId":"84687826288902144","blockCode":"1101140023","buildingCode":"11011400230345","unitCode":"1101140023034501","year":2019,"createTime":"2019-10-07 05:03:52.020","updateTime":"2019-10-07 05:03:52.020","configName":"白庙社区"}]}
+            lsit = data.data
             if (list.length === 0) {
                 $("#history-list").append($("#template4").html());
                 $("#loadMore").remove();
                 return;
             }
-            if(page === 1){
                 list.splice(1,0,
                     { 
                         id: "253181848908222464",
@@ -110,7 +106,6 @@
                         updateTime: "2020-02-20 08:51:51.433",
                         configName: "白庙社区"
                 })
-            }
             var timestampTemp = 0;
             list.forEach(function (history) {
                 var dateStr = history.year + "-" + history.month + "-01";
@@ -127,8 +122,9 @@
                 $('#history-list .record-item:last').append($("#template3").html().format(history));
             });
             $("#history-list").append(Hj.getHtmlTemplate("template5"));
-        }, Hj.getDefaultHeader());
-    };
+        }
+        //Hj.getDefaultHeader()
+ 
 
     jQuery(function () {
         new HjMain().init();
